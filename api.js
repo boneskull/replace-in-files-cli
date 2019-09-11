@@ -12,7 +12,7 @@ const readFile = promisify(fs.readFile);
 // TODO(sindresorhus): I will extract this to a separate module at some point when it's more mature.
 // `find` is expected to be `Array<string | RegExp>`
 // The `ignoreCase` option overrides the `i` flag for regexes in `find`
-module.exports = async (filePaths, {find, replacement, ignoreCase, glob} = {}) => {
+module.exports = async (filePaths, {find, replacement, ignoreCase = false, glob = true} = {}) => {
 	filePaths = arrify(filePaths);
 
 	if (filePaths.length === 0) {
